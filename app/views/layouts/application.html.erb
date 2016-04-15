@@ -6,9 +6,12 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<% body_id = current_page?(root_url)? "id=\"home-page\"" : "" %>
+<body <%= raw(body_id) %>>
+	<div class="container">
+	<%= yield %>
+	</div>
 
-<%= yield %>
-
+	<%= render 'layouts/footer' %>
 </body>
 </html>
